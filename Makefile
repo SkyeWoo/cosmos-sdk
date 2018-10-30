@@ -64,11 +64,15 @@ ifeq ($(OS),Windows_NT)
 	go build $(BUILD_FLAGS) -o build/basecli.exe ./examples/basecoin/cmd/basecli
 	go build $(BUILD_FLAGS) -o build/democoind.exe ./examples/democoin/cmd/democoind
 	go build $(BUILD_FLAGS) -o build/democli.exe ./examples/democoin/cmd/democli
+	go build $(BUILD_FLAGS) -o build/simplegovd.exe ./examples/simpleGov/cmd/simplegovd
+	go build $(BUILD_FLAGS) -o build/simplegovcli.exe ./examples/simpleGov/cmd/simplegovcli
 else
 	go build $(BUILD_FLAGS) -o build/basecoind ./examples/basecoin/cmd/basecoind
 	go build $(BUILD_FLAGS) -o build/basecli ./examples/basecoin/cmd/basecli
 	go build $(BUILD_FLAGS) -o build/democoind ./examples/democoin/cmd/democoind
 	go build $(BUILD_FLAGS) -o build/democli ./examples/democoin/cmd/democli
+	go build $(BUILD_FLAGS) -o build/simplegovd ./examples/simpleGov/cmd/simplegovd
+	go build $(BUILD_FLAGS) -o build/simplegovcli ./examples/simpleGov/cmd/simplegovcli
 endif
 
 install: check-ledger update_gaia_lite_docs
@@ -80,6 +84,8 @@ install_examples:
 	go install $(BUILD_FLAGS) ./examples/basecoin/cmd/basecli
 	go install $(BUILD_FLAGS) ./examples/democoin/cmd/democoind
 	go install $(BUILD_FLAGS) ./examples/democoin/cmd/democli
+	go install $(BUILD_FLAGS) ./examples/simpleGov/cmd/simplegovd
+	go install $(BUILD_FLAGS) ./examples/simpleGov/cmd/simplegovcli
 
 install_cosmos-sdk-cli:
 	go install $(BUILD_FLAGS) ./cmd/cosmos-sdk-cli
